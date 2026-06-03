@@ -69,3 +69,25 @@ document.querySelectorAll("[data-video-slot] .play-button").forEach((button) => 
     window.alert(`Video "${slot}" ainda nao foi adicionado. Envie o arquivo ou link que eu substituo este placeholder.`);
   });
 });
+
+const floatingVideo = document.querySelector("[data-floating-video]");
+const floatingVideoClose = document.querySelector(".floating-video-close");
+let floatingVideoDismissed = false;
+
+function updateFloatingVideo() {
+  if (!floatingVideo || floatingVideoDismissed) return;
+  floatingVideo.classList.toggle("is-visible", window.scrollY > 520);
+}
+
+if (floatingVideo) {
+  updateFloatingVideo();
+  window.addEventListener("scroll", updateFloatingVideo, { passive: true });
+}
+
+if (floatingVideoClose && floatingVideo) {
+  floatingVideoClose.addEventListener("click", (event) => {
+    event.stopPropagation();
+    floatingVideoDismissed = true;
+    floatingVideo.classList.add("is-dismissed");
+  });
+}

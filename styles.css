@@ -399,21 +399,127 @@ summary {
 }
 details p { margin: 12px 0 0; }
 
-.sticky-cta {
+.floating-sales-tools {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 25;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  display: grid;
+  justify-items: end;
+  gap: 14px;
+  pointer-events: none;
+}
+.floating-whatsapp,
+.floating-video,
+.floating-video button {
+  pointer-events: auto;
+}
+.floating-whatsapp {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.32), 0 0 0 8px rgba(37, 211, 102, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 20px 52px rgba(37, 211, 102, 0.42), 0 0 0 10px rgba(37, 211, 102, 0.14);
+}
+.floating-whatsapp svg {
+  width: 34px;
+  height: 34px;
+  fill: currentColor;
+}
+.floating-video {
+  position: relative;
+  width: min(340px, calc(100vw - 34px));
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  border-radius: 18px;
+  background: #060403;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.52), 0 0 42px rgba(240, 189, 88, 0.16);
+  opacity: 0;
+  transform: translate3d(0, 18px, 0) scale(0.96);
+  visibility: hidden;
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+}
+.floating-video.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  visibility: visible;
+}
+.floating-video.is-dismissed {
   display: none;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-2));
-  color: #130b02;
+}
+.floating-video-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  background: #111;
+}
+.floating-video-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.78) saturate(1.05);
+}
+.floating-video-frame::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.38));
+  content: "";
+}
+.floating-video .play-button {
+  position: relative;
+}
+.floating-video .play-button span {
+  z-index: 2;
+  width: 54px;
+  height: 54px;
+  border-width: 2px;
+}
+.floating-video .play-button span::before {
+  border-left-width: 15px;
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+}
+.floating-video-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+.floating-video-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--gold), #28d87b);
+}
+.floating-video p {
+  margin: 0;
+  padding: 10px 12px 12px;
+  color: #fff;
+  font-size: 0.86rem;
   font-weight: 900;
-  box-shadow: 0 18px 54px rgba(240, 189, 88, 0.25);
+  text-align: center;
 }
 
 @media (max-width: 980px) {
@@ -434,5 +540,21 @@ details p { margin: 12px 0 0; }
   .machine, .curriculum, .mentor-cards { grid-template-columns: 1fr; }
   .mentor-card { min-height: 500px; }
   .section { padding: 66px 0; }
-  .sticky-cta { display: flex; right: 14px; bottom: 14px; left: 14px; }
+  .floating-sales-tools {
+    right: 14px;
+    bottom: 14px;
+    gap: 10px;
+  }
+  .floating-video {
+    width: min(270px, calc(100vw - 28px));
+    border-radius: 14px;
+  }
+  .floating-whatsapp {
+    width: 58px;
+    height: 58px;
+  }
+  .floating-whatsapp svg {
+    width: 31px;
+    height: 31px;
+  }
 }
