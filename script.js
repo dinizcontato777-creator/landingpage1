@@ -62,3 +62,10 @@ window.addEventListener(
   },
   { passive: true }
 );
+
+document.querySelectorAll("[data-video-slot] .play-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const slot = button.closest("[data-video-slot]")?.getAttribute("data-video-slot");
+    window.alert(`Video "${slot}" ainda nao foi adicionado. Envie o arquivo ou link que eu substituo este placeholder.`);
+  });
+});
