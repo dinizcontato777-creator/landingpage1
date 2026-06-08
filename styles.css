@@ -1,9 +1,9 @@
 :root {
-  --bg: #060403;
-  --panel: #120d09;
-  --panel-2: #1b140d;
-  --text: #fff8ec;
-  --muted: #cbbda7;
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --panel-2: #1a1a1a;
+  --text: #ffffff;
+  --muted: #a9a9a9;
   --gold: #f0bd58;
   --gold-2: #8c5a16;
   --green: #39e59a;
@@ -20,7 +20,7 @@ body {
   background:
     radial-gradient(circle at 50% 0%, rgba(240, 189, 88, 0.18), transparent 34rem),
     radial-gradient(circle at 90% 24%, rgba(57, 229, 154, 0.08), transparent 30rem),
-    linear-gradient(180deg, #060403 0%, #0b0704 45%, #050302 100%);
+    linear-gradient(180deg, #0a0a0a 0%, #111 44%, #070707 100%);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
@@ -68,8 +68,13 @@ img { display: block; max-width: 100%; }
 .nav { gap: 18px; color: var(--muted); font-size: 0.86rem; font-weight: 850; }
 
 .hero {
-  padding: 78px 0 54px;
+  padding: 82px 0 66px;
   border-bottom: 1px solid var(--line);
+}
+.hero-vtsd {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(240, 189, 88, 0.2), transparent 34rem),
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
 }
 .hero-center {
   max-width: 990px;
@@ -83,6 +88,53 @@ img { display: block; max-width: 100%; }
   background: #fff;
   padding: 8px;
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34), 0 0 46px rgba(42, 188, 217, 0.18);
+}
+.social-proof-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 18px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+}
+.avatars {
+  display: flex;
+}
+.avatar {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  margin-left: -12px;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--green));
+  color: #111;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+.avatar:first-child { margin-left: 0; }
+.counter, .rating {
+  color: #f7eddd;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+.credential-badge {
+  display: inline-flex;
+  margin: 0 auto 14px;
+  padding: 9px 12px;
+  border: 1px solid rgba(240, 189, 88, 0.35);
+  border-radius: 999px;
+  background: rgba(240, 189, 88, 0.1);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 .eyebrow {
   margin: 0 0 14px;
@@ -114,11 +166,33 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   font-size: clamp(1.08rem, 2vw, 1.38rem);
   font-weight: 700;
 }
+.cta-block {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+.cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+.cta-badges span {
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.045);
+}
+.section-cta { margin-top: 34px; }
 
 .vsl-shell {
   overflow: hidden;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 36px auto 0;
   border: 1px solid rgba(240, 189, 88, 0.35);
   border-radius: 8px;
   background: #0b0704;
@@ -242,7 +316,8 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   gap: 12px;
   grid-template-columns: repeat(3, 1fr);
 }
-.strip-grid div, .diagnosis article, .machine article, .mentor-card, .qual-list div, .curriculum article, .testimonial-card, .proof-numbers div, .offer-shell, details {
+.benefits-strip .strip-grid { grid-template-columns: repeat(4, 1fr); }
+.strip-grid div, .diagnosis article, .machine article, .mentor-card, .mentor-authority-card, .qual-list div, .curriculum article, .deliverable-grid div, .testimonial-card, .proof-numbers div, .offer-shell, details, .faq-item, .compare-card, .roadmap article {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
@@ -250,7 +325,7 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
 }
 .strip-grid div { padding: 18px; }
 .strip-grid strong { display: block; margin-bottom: 5px; font-size: 1.25rem; }
-.strip-grid span, .narrow-copy p, .section-heading p, .diagnosis li, .machine p, .mentor-copy p, .curriculum p, .testimonial-card p, .testimonial-card span, .offer-copy p, .faq p {
+.strip-grid span, .narrow-copy p, .section-heading p, .diagnosis li, .machine p, .mentor-copy p, .mentor-authority-copy p, .mentor-authority-copy li, .curriculum p, .testimonial-card p, .testimonial-card span, .offer-copy p, .faq p, .compare-card li, .roadmap p {
   color: var(--muted);
 }
 
@@ -270,6 +345,41 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
+.compare-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+}
+.compare-card {
+  padding: clamp(22px, 4vw, 36px);
+}
+.compare-card > span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.compare-card ul, .mentor-authority-copy ul {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.compare-card li, .mentor-authority-copy li {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.045);
+  font-weight: 800;
+}
+.compare-negative { border-color: rgba(255, 94, 77, 0.28); }
+.compare-positive { border-color: rgba(57, 229, 154, 0.32); }
+.compare-negative > span { color: var(--red); }
+.compare-positive > span { color: var(--green); }
 .diagnosis article {
   padding: clamp(24px, 4vw, 36px);
 }
@@ -310,6 +420,39 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   gap: 14px;
   grid-template-columns: repeat(4, 1fr);
 }
+.roadmap {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.roadmap article {
+  position: relative;
+  padding: 24px;
+}
+.roadmap article::before {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #111;
+  content: "";
+}
+.roadmap article span {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.roadmap article strong {
+  display: block;
+  margin-top: 16px;
+  color: var(--green);
+}
 .machine article, .curriculum article {
   min-height: 270px;
   padding: 22px;
@@ -322,6 +465,37 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(2, 1fr);
+}
+.mentor-authority-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.mentor-authority-card {
+  overflow: hidden;
+}
+.mentor-authority-card img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  filter: brightness(0.82) saturate(0.95);
+}
+.mentor-authority-card:first-child img { object-position: center 16%; }
+.mentor-authority-card:last-child img { object-position: center center; }
+.mentor-authority-copy {
+  padding: 26px;
+}
+.mentor-authority-copy h3 {
+  margin: 8px 0 10px;
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 0.9;
+}
+.mentor-badge-inline {
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .mentor-card {
   position: relative;
@@ -370,6 +544,16 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   display: grid;
   gap: 12px;
 }
+.deliverable-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.deliverable-grid div {
+  padding: 18px;
+  color: #f7eddd;
+  font-weight: 850;
+}
 .qual-list div {
   padding: 16px;
   color: #f7eddd;
@@ -400,6 +584,11 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   gap: 14px;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 14px;
+}
+.testimonial-extra { display: none; }
+.testimonial-grid.is-expanded .testimonial-extra { display: block; }
+.btn-more {
+  margin: 18px auto 0;
 }
 .testimonial-card {
   padding: 22px;
@@ -496,6 +685,50 @@ summary {
   font-weight: 900;
 }
 details p { margin: 12px 0 0; }
+.faq-item {
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: none;
+}
+.faq-question {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  text-align: left;
+}
+.faq-question span {
+  color: var(--gold);
+  font-size: 1.4rem;
+}
+.faq-question.is-open span {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease;
+}
+.faq-answer p {
+  margin: 0;
+  padding: 0 20px 18px;
+}
+.offer-whatsapp {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--muted);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 
 .site-footer {
   padding: 40px 0 96px;
@@ -694,8 +927,8 @@ details p { margin: 12px 0 0; }
 @media (max-width: 980px) {
   .nav { display: none; }
   .strip-grid, .diagnosis-grid, .mentor-layout, .qual-grid, .offer-shell { grid-template-columns: 1fr; }
-  .machine, .curriculum { grid-template-columns: repeat(2, 1fr); }
-  .proof-numbers, .testimonial-grid, .footer-grid { grid-template-columns: 1fr; }
+  .benefits-strip .strip-grid, .machine, .curriculum, .roadmap, .deliverable-grid { grid-template-columns: repeat(2, 1fr); }
+  .proof-numbers, .testimonial-grid, .footer-grid, .compare-grid, .mentor-authority-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -707,7 +940,9 @@ details p { margin: 12px 0 0; }
   .hero-actions { display: grid; }
   .btn { width: 100%; }
   .machine, .curriculum, .mentor-cards { grid-template-columns: 1fr; }
+  .benefits-strip .strip-grid, .roadmap, .deliverable-grid { grid-template-columns: 1fr; }
   .mentor-card { min-height: 500px; }
+  .mentor-authority-card img { height: 380px; }
   .section { padding: 66px 0; }
   .floating-sales-tools {
     right: 14px;

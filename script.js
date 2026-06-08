@@ -135,3 +135,32 @@ if (mobileSticky) {
   updateMobileSticky();
   window.addEventListener("scroll", updateMobileSticky, { passive: true });
 }
+
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const answer = button.nextElementSibling;
+    const isOpen = button.classList.contains("is-open");
+
+    document.querySelectorAll(".faq-question").forEach((item) => item.classList.remove("is-open"));
+    document.querySelectorAll(".faq-answer").forEach((item) => {
+      item.style.maxHeight = null;
+    });
+
+    if (!isOpen && answer) {
+      button.classList.add("is-open");
+      answer.style.maxHeight = `${answer.scrollHeight}px`;
+    }
+  });
+});
+
+const showTestimonialsButton = document.querySelector("[data-show-testimonials]");
+const testimonialGrid = document.querySelector("[data-testimonial-grid]");
+
+if (showTestimonialsButton && testimonialGrid) {
+  showTestimonialsButton.addEventListener("click", () => {
+    testimonialGrid.classList.toggle("is-expanded");
+    showTestimonialsButton.textContent = testimonialGrid.classList.contains("is-expanded")
+      ? "Ver menos depoimentos"
+      : "Ver mais depoimentos";
+  });
+}
