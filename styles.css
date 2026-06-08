@@ -242,7 +242,7 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   gap: 12px;
   grid-template-columns: repeat(3, 1fr);
 }
-.strip-grid div, .diagnosis article, .machine article, .mentor-card, .qual-list div, .curriculum article, .video-tile, .offer-shell, details {
+.strip-grid div, .diagnosis article, .machine article, .mentor-card, .qual-list div, .curriculum article, .testimonial-card, .proof-numbers div, .offer-shell, details {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
@@ -250,7 +250,7 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
 }
 .strip-grid div { padding: 18px; }
 .strip-grid strong { display: block; margin-bottom: 5px; font-size: 1.25rem; }
-.strip-grid span, .narrow-copy p, .section-heading p, .diagnosis li, .machine p, .mentor-copy p, .curriculum p, .video-tile p, .offer-copy p, .faq p {
+.strip-grid span, .narrow-copy p, .section-heading p, .diagnosis li, .machine p, .mentor-copy p, .curriculum p, .testimonial-card p, .testimonial-card span, .offer-copy p, .faq p {
   color: var(--muted);
 }
 
@@ -376,28 +376,111 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   font-weight: 850;
 }
 
-.video-grid {
+.proof-numbers {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(3, 1fr);
 }
-.video-tile { overflow: hidden; }
-.video-placeholder {
-  min-height: 230px;
-  background: radial-gradient(circle at 50% 35%, rgba(240,189,88,0.16), transparent 14rem), #080604;
+.proof-numbers div {
+  padding: 24px;
+  text-align: center;
 }
-.video-tile h3 { padding: 20px 20px 0; }
-.video-tile p { padding: 0 20px 22px; }
+.proof-numbers strong {
+  display: block;
+  color: var(--green);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+}
+.proof-numbers span {
+  color: var(--muted);
+  font-weight: 850;
+}
+.testimonial-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 14px;
+}
+.testimonial-card {
+  padding: 22px;
+}
+.testimonial-avatar {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--green));
+  color: #120d09;
+  font-weight: 900;
+}
+.testimonial-card strong {
+  display: block;
+  margin: 12px 0;
+  color: var(--gold);
+}
 
 .offer-shell {
   padding: clamp(28px, 5vw, 56px);
   background: radial-gradient(circle at 82% 18%, rgba(240,189,88,0.16), transparent 18rem), var(--panel);
+}
+.scarcity {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 4px 0 18px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 94, 77, 0.32);
+  border-radius: 8px;
+  background: rgba(255, 94, 77, 0.1);
+  color: #ffe0dc;
+  font-weight: 900;
+}
+.scarcity strong { color: var(--red); }
+.price-box {
+  margin: 8px 0 18px;
+  padding: 22px;
+  border: 1px solid rgba(240, 189, 88, 0.28);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.24);
+}
+.price-box span {
+  color: var(--muted);
+  font-weight: 800;
+}
+.price-box strong {
+  display: block;
+  margin: 6px 0;
+  color: var(--gold);
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+.guarantee {
+  padding: 18px;
+  border: 1px solid rgba(57, 229, 154, 0.28);
+  border-radius: 8px;
+  background: rgba(57, 229, 154, 0.08);
+}
+.guarantee strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--green);
 }
 .value-stack {
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(0,0,0,0.22);
+}
+.value-stack li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.value-stack li span {
+  color: var(--gold);
+  white-space: nowrap;
 }
 
 .faq-wrap {
@@ -413,6 +496,38 @@ summary {
   font-weight: 900;
 }
 details p { margin: 12px 0 0; }
+
+.site-footer {
+  padding: 40px 0 96px;
+  border-top: 1px solid var(--line);
+  background: #050302;
+}
+.footer-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1.4fr 1fr 1fr;
+}
+.footer-grid img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px;
+}
+.footer-grid strong,
+.footer-grid a,
+.footer-grid span {
+  display: block;
+}
+.footer-grid p,
+.footer-grid a,
+.footer-grid span {
+  color: var(--muted);
+}
+.footer-grid strong {
+  margin-bottom: 10px;
+}
 
 .floating-sales-tools {
   position: fixed;
@@ -538,11 +653,49 @@ details p { margin: 12px 0 0; }
   text-align: center;
 }
 
+.mobile-sticky-cta {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 70;
+  display: none;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 248, 236, 0.18);
+  border-radius: 8px;
+  background: rgba(6, 4, 3, 0.92);
+  box-shadow: 0 18px 58px rgba(0, 0, 0, 0.42);
+  transform: translateY(125%);
+  transition: transform 220ms ease;
+}
+.mobile-sticky-cta.is-visible {
+  transform: translateY(0);
+}
+.mobile-sticky-cta a {
+  display: grid;
+  min-height: 48px;
+  place-items: center;
+  border-radius: 8px;
+  font-weight: 900;
+  text-align: center;
+}
+.mobile-sticky-cta a:first-child {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  color: #130b02;
+}
+.mobile-sticky-cta a:last-child {
+  padding-inline: 14px;
+  background: #25d366;
+  color: #fff;
+}
+
 @media (max-width: 980px) {
   .nav { display: none; }
   .strip-grid, .diagnosis-grid, .mentor-layout, .qual-grid, .offer-shell { grid-template-columns: 1fr; }
   .machine, .curriculum { grid-template-columns: repeat(2, 1fr); }
-  .video-grid { grid-template-columns: 1fr; }
+  .proof-numbers, .testimonial-grid, .footer-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -558,7 +711,7 @@ details p { margin: 12px 0 0; }
   .section { padding: 66px 0; }
   .floating-sales-tools {
     right: 14px;
-    bottom: 14px;
+    bottom: 82px;
     gap: 10px;
   }
   .floating-video {
@@ -573,4 +726,7 @@ details p { margin: 12px 0 0; }
     width: 31px;
     height: 31px;
   }
+  .mobile-sticky-cta { display: grid; }
+  .value-stack li { display: grid; }
+  .site-footer { padding-bottom: 116px; }
 }
