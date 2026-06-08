@@ -23,8 +23,8 @@
 
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Anti-agência">
-        <span class="brand-mark">A</span>
-        <span>Anti-agência</span>
+        <img class="brand-logo" src="assets/logo-ead-metodo.jpg" alt="Metodo Escola Aprenda Digital" />
+        <span>Método EAD</span>
       </a>
       <nav class="nav">
         <a href="#aula">Aula</a>
@@ -38,6 +38,7 @@
     <main id="top">
       <section class="hero" id="aula">
         <div class="container hero-center">
+          <img class="method-logo" src="assets/logo-ead-metodo.jpg" alt="Metodo Escola Aprenda Digital" />
           <p class="eyebrow">Para quem quer sair do serviço comum</p>
           <h1>Aprenda a vender soluções digitais de alto valor usando tráfego, SaaS e IA.</h1>
           <p class="hero-sub">
@@ -50,11 +51,13 @@
               <strong>Assista para entender o método completo</strong>
             </div>
             <div class="vsl-frame">
-              <img src="assets/hero-dashboard.png" alt="Prévia da aula principal da Anti-agência" />
-              <button class="play-button" type="button" aria-label="Vídeo em breve"><span></span></button>
+              <video class="sales-video" controls playsinline preload="metadata" poster="assets/logo-ead-metodo.jpg">
+                <source src="assets/video-vendas.mp4" type="video/mp4" />
+                Seu navegador não suporta video HTML5.
+              </video>
             </div>
             <div class="vsl-caption">
-              Quando você enviar o vídeo, ele entra aqui como VSL principal. A estrutura já está pronta para receber o player.
+              Aperte o play e assista a apresentação antes de entrar para a formação.
             </div>
           </div>
 
@@ -307,10 +310,11 @@
     <div class="floating-sales-tools" aria-label="Atalhos de conversao">
       <aside class="floating-video" data-floating-video data-video-slot="floating-vsl">
         <button class="floating-video-close" type="button" aria-label="Fechar mini video">x</button>
-        <button class="floating-video-frame play-button" type="button" aria-label="Assistir previa da aula">
-          <img src="assets/hero-dashboard.png" alt="Previa da aula Anti-agencia" />
-          <span></span>
-        </button>
+        <div class="floating-video-frame">
+          <video controls playsinline preload="metadata" poster="assets/logo-ead-metodo.jpg">
+            <source src="assets/video-vendas.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div class="floating-video-bar"></div>
         <p>Assista a aula antes de entrar</p>
       </aside>
