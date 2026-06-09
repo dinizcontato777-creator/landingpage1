@@ -59,11 +59,11 @@ img { display: block; max-width: 100%; }
 .brand-logo {
   width: 58px;
   height: 38px;
-  object-fit: contain;
+  object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
   background: #fff;
-  padding: 4px;
+  padding: 0;
 }
 .nav { gap: 18px; color: var(--muted); font-size: 0.86rem; font-weight: 850; }
 
@@ -81,12 +81,14 @@ img { display: block; max-width: 100%; }
   text-align: center;
 }
 .method-logo {
-  width: min(260px, 70vw);
-  margin: 0 auto 22px;
+  width: min(210px, 58vw);
+  height: 118px;
+  margin: 0 auto 18px;
+  object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   background: #fff;
-  padding: 8px;
+  padding: 0;
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34), 0 0 46px rgba(42, 188, 217, 0.18);
 }
 .social-proof-bar {
@@ -215,7 +217,7 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   text-transform: uppercase;
 }
 .vsl-top strong { font-size: 0.92rem; }
-.vsl-frame, .video-placeholder {
+.vsl-frame {
   position: relative;
   display: grid;
   place-items: center;
@@ -476,12 +478,12 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
 }
 .mentor-authority-card img {
   width: 100%;
-  height: 460px;
+  height: clamp(340px, 36vw, 420px);
   object-fit: cover;
   filter: brightness(0.82) saturate(0.95);
 }
-.mentor-authority-card:first-child img { object-position: center 16%; }
-.mentor-authority-card:last-child img { object-position: center center; }
+.mentor-authority-card:first-child img { object-position: center 8%; }
+.mentor-authority-card:last-child img { object-position: center 34%; }
 .mentor-authority-copy {
   padding: 26px;
 }
@@ -942,7 +944,11 @@ details p { margin: 12px 0 0; }
   .machine, .curriculum, .mentor-cards { grid-template-columns: 1fr; }
   .benefits-strip .strip-grid, .roadmap, .deliverable-grid { grid-template-columns: 1fr; }
   .mentor-card { min-height: 500px; }
-  .mentor-authority-card img { height: 380px; }
+  .method-logo {
+    width: 170px;
+    height: 96px;
+  }
+  .mentor-authority-card img { height: 330px; }
   .section { padding: 66px 0; }
   .floating-sales-tools {
     right: 14px;
