@@ -239,6 +239,20 @@ h3 { margin-bottom: 10px; font-size: 1.35rem; line-height: 1.12; }
   display: block;
   background: #000;
 }
+.video-docked-placeholder {
+  display: none;
+  width: min(92%, 560px);
+  padding: 28px;
+  border: 1px dashed rgba(240, 189, 88, 0.35);
+  border-radius: 8px;
+  background: rgba(240, 189, 88, 0.08);
+  color: var(--gold);
+  font-weight: 900;
+  text-align: center;
+}
+.vsl-frame.is-docked .video-docked-placeholder {
+  display: block;
+}
 .vsl-caption {
   padding: 15px 18px;
   color: var(--muted);
@@ -813,6 +827,9 @@ details p { margin: 12px 0 0; }
   transform: translate3d(0, 18px, 0) scale(0.96);
   visibility: hidden;
   transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+}
+.floating-video:not(.is-visible) .sales-video {
+  pointer-events: none;
 }
 .floating-video.is-visible {
   opacity: 1;

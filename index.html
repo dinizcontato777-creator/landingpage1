@@ -98,11 +98,14 @@
               <span>Aula liberada</span>
               <strong>Assista para entender o metodo completo</strong>
             </div>
-            <div class="vsl-frame">
+            <div class="vsl-frame" data-video-home>
               <video class="sales-video" controls playsinline preload="metadata" poster="assets/logo-ead-metodo.jpg">
                 <source src="assets/video-vendas.mp4" type="video/mp4" />
                 Seu navegador nao suporta video HTML5.
               </video>
+              <div class="video-docked-placeholder" aria-hidden="true">
+                O video continua no canto inferior direito.
+              </div>
             </div>
             <div class="vsl-caption">
               Aperte o play e veja como a Anti-agencia transforma habilidade tecnica em uma oferta de maior valor percebido.
@@ -442,14 +445,14 @@
               <p>Se voce assistir as primeiras aulas e nao ver valor, devolvemos 100% do seu investimento. Sem burocracia.</p>
             </div>
             <div class="cta-block">
-              <a class="btn btn-primary btn-large" href="mailto:dinizcontato777@gmail.com?subject=Quero%20entrar%20na%20Anti-agencia&body=Ola!%20Vi%20a%20pagina%20da%20Anti-agencia%20e%20quero%20saber%20mais." target="_blank" rel="noreferrer">Solicitar acesso ao treinamento</a>
+              <a class="btn btn-primary btn-large" href="#oferta">Solicitar acesso ao treinamento</a>
               <div class="cta-badges">
                 <span>Compra segura</span>
                 <span>7 dias de garantia</span>
                 <span>4,9/5</span>
               </div>
             </div>
-            <a class="offer-whatsapp" href="mailto:dinizcontato777@gmail.com?subject=Duvida%20sobre%20a%20Anti-agencia&body=Ola!%20Vi%20a%20pagina%20e%20quero%20tirar%20uma%20duvida." target="_blank" rel="noreferrer">Tirar duvida com a equipe</a>
+            <a class="offer-whatsapp" href="#oferta">Tirar duvida com a equipe</a>
           </div>
           <div class="value-stack">
             <h3>Stack de valor da oferta</h3>
@@ -523,7 +526,7 @@
         </div>
         <div>
           <strong>Contato</strong>
-          <a href="mailto:dinizcontato777@gmail.com">dinizcontato777@gmail.com</a>
+          <a href="#oferta">Falar com a equipe</a>
         </div>
         <div>
           <strong>Legal</strong>
@@ -537,11 +540,7 @@
     <div class="floating-sales-tools" aria-label="Atalhos de conversao">
       <aside class="floating-video" data-floating-video data-video-slot="floating-vsl">
         <button class="floating-video-close" type="button" aria-label="Fechar mini video">x</button>
-        <div class="floating-video-frame">
-          <video controls playsinline preload="metadata" poster="assets/logo-ead-metodo.jpg">
-            <source src="assets/video-vendas.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <div class="floating-video-frame" data-video-dock></div>
         <div class="floating-video-bar"></div>
         <p>Assista a aula antes de entrar</p>
       </aside>
@@ -549,8 +548,6 @@
       <a
         class="floating-whatsapp"
         href="#oferta"
-        target="_blank"
-        rel="noreferrer"
         aria-label="Ir para a oferta"
       >
         <svg viewBox="0 0 32 32" aria-hidden="true">

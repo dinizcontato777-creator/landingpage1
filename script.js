@@ -1,21 +1,60 @@
 const floatingVideo = document.querySelector("[data-floating-video]");
 const floatingVideoClose = document.querySelector(".floating-video-close");
+const videoHome = document.querySelector("[data-video-home]");
+const videoDock = document.querySelector("[data-video-dock]");
+const salesVideo = document.querySelector(".sales-video");
 let floatingVideoDismissed = false;
+let videoStarted = false;
 
-function updateFloatingVideo() {
-  if (!floatingVideo || floatingVideoDismissed) return;
-  floatingVideo.classList.toggle("is-visible", window.scrollY > 520);
+function dockSalesVideo() {
+  if (!floatingVideo || !videoHome || !videoDock || !salesVideo || floatingVideoDismissed) return;
+  if (salesVideo.parentElement !== videoDock) {
+    videoDock.appendChild(salesVideo);
+    videoHome.classList.add("is-docked");
+  }
+  floatingVideo.classList.add("is-visible");
 }
 
-if (floatingVideo) {
+function restoreSalesVideo() {
+  if (!floatingVideo || !videoHome || !salesVideo) return;
+  if (salesVideo.parentElement !== videoHome) {
+    videoHome.insertBefore(salesVideo, videoHome.firstChild);
+    videoHome.classList.remove("is-docked");
+  }
+  floatingVideo.classList.remove("is-visible");
+}
+
+function updateFloatingVideo() {
+  if (!floatingVideo || !salesVideo || !videoHome || floatingVideoDismissed) return;
+  const homeBottom = videoHome.getBoundingClientRect().bottom;
+  const shouldDock = videoStarted && homeBottom < 90;
+
+  if (shouldDock) {
+    dockSalesVideo();
+  } else {
+    restoreSalesVideo();
+  }
+}
+
+if (salesVideo) {
+  salesVideo.addEventListener("play", () => {
+    videoStarted = true;
+    updateFloatingVideo();
+  });
+}
+
+if (floatingVideo && salesVideo) {
   updateFloatingVideo();
   window.addEventListener("scroll", updateFloatingVideo, { passive: true });
+  window.addEventListener("resize", updateFloatingVideo);
 }
 
 if (floatingVideoClose && floatingVideo) {
   floatingVideoClose.addEventListener("click", (event) => {
     event.stopPropagation();
     floatingVideoDismissed = true;
+    if (salesVideo) salesVideo.pause();
+    restoreSalesVideo();
     floatingVideo.classList.add("is-dismissed");
   });
 }
